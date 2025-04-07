@@ -1,0 +1,52 @@
+# โฟลเดอร์ที่สร้างโดยระบบ
+node_modules/
+dist/
+.cache/
+.DS_Store # สำหรับ macOS
+
+# ไฟล์บันทึก
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ไฟล์ที่สร้างโดย IDE
+.idea/ # สำหรับ IntelliJ IDEA
+.vscode/ # สำหรับ Visual Studio Code
+*.suo # สำหรับ Visual Studio
+
+# ไฟล์ที่สร้างจากการ build
+build/
+out/
+/build
+/bin
+temp/
+tmp/
+
+# Dependencies สำหรับแพ็กเกจ
+/dependencies
+/bundle
+
+# อื่นๆ
+.env
+/coverage
+*.map # Source Maps
+
+# ถ้าใช้ TypeScript
+/*.js
+!src/**/*.js # ยกเว้นไฟล์ JS ที่สร้างจาก TypeScript ใน src
+/*.d.ts
+
+# ถ้าใช้ Parcel
+/dist
+
+# ถ้าใช้ Webpack
+/bundle*
+/build
+!webpack.config.js
+
+# ตัวอย่างเพิ่มเติมสำหรับ PixiJS
+# โดยทั่วไปจะไม่ commit assets โดยตรง แต่จะจัดการผ่าน pipeline
+/assets
+# ภายในบรรจุ assets ที่ดาวน์โหลดและยังไม่ได้แยกแยะ
+assets-raw
