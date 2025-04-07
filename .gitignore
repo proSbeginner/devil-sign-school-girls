@@ -47,6 +47,7 @@ tmp/
 
 # ตัวอย่างเพิ่มเติมสำหรับ PixiJS
 # โดยทั่วไปจะไม่ commit assets โดยตรง แต่จะจัดการผ่าน pipeline
-/assets
+/assets/*
+!/assets/**/*.json
 # ภายในบรรจุ assets ที่ดาวน์โหลดและยังไม่ได้แยกแยะ
 assets-raw
