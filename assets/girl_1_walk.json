@@ -86,7 +86,7 @@
       }
   },
   "meta": {
-      "app": "manual",
+      "app": "devil-sign",
       "version": "1.0",
       "image": "Girl_1/Walk.png",
       "size": {"w": 1536, "h": 128},
