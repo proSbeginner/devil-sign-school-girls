@@ -22,16 +22,16 @@ export default class Keyboard {
   private handleKeyDown(event: KeyboardEvent): void {
     const key = event.key;
     if (!this.keys[key]) {
-      this.keys[key] = { pressed: true };
+      this.keys[key] = { pressed: true }
     } else {
-      this.keys[key].pressed = true;
+      this.keys[key].pressed = true
     }
   }
 
   private handleKeyUp(event: KeyboardEvent): void {
     const key = event.key;
     if (this.keys[key]) {
-      this.keys[key].pressed = false;
+      this.keys[key].pressed = false
     }
   }
 }
