@@ -15,6 +15,7 @@ import { Character } from './components/Character'
   const keyboard = new Keyboard()
   const spriteLoader = new Girl1AnimatedSpriteLoader()
   const character = new Character(keyboard, spriteLoader)
+  app.stage.addChild(character)
 
   app.ticker.add((time) => {
     character.update(time.deltaTime)
@@ -22,6 +23,6 @@ import { Character } from './components/Character'
 
   // เมื่อเลิกใช้งาน (เช่น เปลี่ยนหน้า) ให้เรียก destroy()
   window.addEventListener('beforeunload', () => {
-    keyboard.destroy();
-  });
+    keyboard.destroy()
+  })
 })()

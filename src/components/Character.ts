@@ -9,13 +9,18 @@ export class Character extends Container {
   private currentAnimatedState: AnimatedState = AnimatedState.Idle
   private direction: number = 1
   private isMoving: boolean = false
+  private isLoadedSprites = false
 
   constructor(
     private keyboard: Keyboard,
     spriteLoader: AnimatedSpriteLoader) {
     super()
-    spriteLoader.load()
-    this.initialize()
+    spriteLoader.load().then((sprites) => {
+      this.walkSprite = sprites.walk
+      this.idleSprite = sprites.idle
+      this.initialize()
+      this.isLoadedSprites = true
+    })
   }
 
   private initialize() {
@@ -46,6 +51,8 @@ export class Character extends Container {
   }
 
   public update(deltaTime: number): void {
+    if(!this.isLoadedSprites) return
+
     if (this.keyboard.isKeyDown('ArrowLeft') || this.keyboard.isKeyDown('a')) {
       this.direction = -1
       this.walkSprite.scale.x = this.direction
