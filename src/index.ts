@@ -1,6 +1,8 @@
 import { Application } from 'pixi.js'
-import { Girl1Character } from './characters/Girl1Character'
-import { Girl1CharacterSpriteLoader } from './characters/Girl1CharacterSpriteLoader'
+import { CharacterSelectionScene } from './scenes/CharacterSelectionScene'
+import { MainMenuScene } from './scenes/MainMenuScene'
+import { SceneManager } from './scenes/SceneManager'
+import { SceneName } from './scenes/SceneName'
 import Keyboard from './utils/keyboard'
 
 (async () => {
@@ -13,13 +15,16 @@ import Keyboard from './utils/keyboard'
   document.body.appendChild(app.canvas)
 
   const keyboard = new Keyboard()
-  const character = new Girl1Character(keyboard, new Girl1CharacterSpriteLoader())
-  character.initialize()
+  const sceneManager = new SceneManager(app)
+  const mainMenuScene = new MainMenuScene(keyboard, sceneManager, app)
+  const characterSelectionScene = new CharacterSelectionScene(keyboard, sceneManager, app)
 
-  app.stage.addChild(character)
+  sceneManager.addScene(SceneName.MainMenu, mainMenuScene)
+  sceneManager.addScene(SceneName.CharacterSelection, characterSelectionScene)
+  sceneManager.changeScene(SceneName.MainMenu)
 
   app.ticker.add((time) => {
-    character.update(time)
+    sceneManager.update(time)
   })
 
   // เมื่อเลิกใช้งาน (เช่น เปลี่ยนหน้า) ให้เรียก destroy()

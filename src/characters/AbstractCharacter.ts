@@ -19,6 +19,7 @@ export abstract class AbstractCharacter extends Container {
   async initialize(): Promise<void> {
     const loaded = this.loadSprites()
     loaded.then(() => {
+      this.isLoadedSprites = true
       this.onLoadedSprites()
     })
   }
@@ -27,10 +28,8 @@ export abstract class AbstractCharacter extends Container {
    * ออกแบบให้ถูกเรียกโดย initialize
    * เพื่อโหลดทุก sprites
    */
-  async loadSprites(): Promise<void> {
+  protected async loadSprites(): Promise<void> {
     const sprites = await this.spriteLoader.load()
-    this.isLoadedSprites = true
-
     this.sprites = {
       walk: sprites.walk,
       idle: sprites.idle,
@@ -41,13 +40,13 @@ export abstract class AbstractCharacter extends Container {
    * ออกแบบให้ถูก override ได้ในคลาสลูก
    * เพื่อ initialize ค่าที่จำเป็นอื่นๆก่อนเรียก update
    */
-  abstract onLoadedSprites(): void
+  protected abstract onLoadedSprites(): void
 
   /**
    * ออกแบบให้ถูก override ได้ในคลาสลูก
    * เพื่อกำหนด sprite animation ควบคู่กับ Keyboard
    */
-  abstract setAnimateState(state: CharacterState): void
+  protected abstract setAnimateState(state: CharacterState): void
 
   /**
    * ออกแบบให้ถูก override ได้ในคลาสลูก
@@ -55,8 +54,8 @@ export abstract class AbstractCharacter extends Container {
    */
   update(time: Ticker): void {
     if (!this.isLoadedSprites) return
-    this.onUpdate(time.deltaTime)
+    this.onUpdate(time)
   }
 
-  abstract onUpdate(deltaTime: number): void
+  protected abstract onUpdate(time: Ticker): void
 }
