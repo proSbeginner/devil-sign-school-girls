@@ -24,8 +24,6 @@ export class CharacterSelectionScene extends AbstractScene {
   }
 
   onLoadedSprites(): void {
-    this.girl1.visible = false
-    this.girl2.visible = false
   }
 
   onUpdate(time: Ticker): void {
