@@ -2,10 +2,10 @@ import { AnimatedSprite, Assets } from "pixi.js";
 import { Character } from "./Character";
 import { CharacterSpriteLoader } from "./CharacterSpriteLoader";
 
-export class Girl1CharacterSpriteLoader implements CharacterSpriteLoader {
+export class Girl2CharacterSpriteLoader implements CharacterSpriteLoader {
   async load(): Promise<Character> {
-    await Assets.load('assets/girl_1_walk.json')
-    await Assets.load('assets/girl_1_idle.json')
+    await Assets.load('assets/girl_2_walk.json')
+    await Assets.load('assets/girl_2_idle.json')
 
     const walkSprite = AnimatedSprite.fromFrames([
       "Walk_000", "Walk_001", "Walk_002", "Walk_003",
@@ -17,12 +17,13 @@ export class Girl1CharacterSpriteLoader implements CharacterSpriteLoader {
 
     const idleSprite = AnimatedSprite.fromFrames([
       "Idle_000", "Idle_001", "Idle_002", "Idle_003",
-      "Idle_004", "Idle_005", "Idle_006", "Idle_007",
-      "Idle_008"
+      "Idle_004", "Idle_005", "Idle_006"
     ])
     idleSprite.animationSpeed = 0.03
     idleSprite.anchor.set(0.5, 0)
 
     return { walk: walkSprite, idle: idleSprite }
   }
+
+
 }

@@ -1,0 +1,60 @@
+{
+  "frames": {
+    "Idle_000": {
+      "frame": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": { "w": 896, "h": 128 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 }
+    },
+    "Idle_001": {
+      "frame": { "x": 128, "y": 0, "w": 128, "h": 128 },
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": { "w": 896, "h": 128 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 }
+    },
+    "Idle_002": {
+      "frame": { "x": 256, "y": 0, "w": 128, "h": 128 },
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": { "w": 896, "h": 128 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 }
+    },
+    "Idle_003": {
+      "frame": { "x": 384, "y": 0, "w": 128, "h": 128 },
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": { "w": 896, "h": 128 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 }
+    },
+    "Idle_004": {
+      "frame": { "x": 512, "y": 0, "w": 128, "h": 128 },
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": { "w": 896, "h": 128 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 }
+    },
+    "Idle_005": {
+      "frame": { "x": 640, "y": 0, "w": 128, "h": 128 },
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": { "w": 896, "h": 128 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 }
+    },
+    "Idle_006": {
+      "frame": { "x": 768, "y": 0, "w": 128, "h": 128 },
+      "rotated": false,
+      "trimmed": false,
+      "sourceSize": { "w": 896, "h": 128 },
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 }
+    }
+  },
+  "meta": {
+    "app": "devil-sign",
+    "version": "1.0",
+    "image": "Girl_2/Idle.png",
+    "size": { "w": 896, "h": 128 },
+    "scale": "1"
+  }
+}
