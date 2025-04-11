@@ -1,6 +1,6 @@
 import { Application } from 'pixi.js'
-import { Girl1AnimatedSpriteLoader } from './components/Girl1AnimatedSpriteLoader'
-import { Girl1Character } from './components/Girl1Character'
+import { Girl1Character } from './characters/Girl1Character'
+import { Girl1CharacterSpriteLoader } from './characters/Girl1CharacterSpriteLoader'
 import Keyboard from './utils/keyboard'
 
 (async () => {
@@ -13,11 +13,11 @@ import Keyboard from './utils/keyboard'
   document.body.appendChild(app.canvas)
 
   const keyboard = new Keyboard()
-  const character = new Girl1Character(keyboard, new Girl1AnimatedSpriteLoader())
+  const character = new Girl1Character(keyboard, new Girl1CharacterSpriteLoader())
   character.initialize()
 
   app.stage.addChild(character)
-  
+
   app.ticker.add((time) => {
     character.update(time)
   })

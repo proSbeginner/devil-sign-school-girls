@@ -1,18 +1,16 @@
-import { AnimatedSprite, Container, Ticker, Triangle } from "pixi.js";
-import { AnimatedSpriteLoader } from "./AnimatedSpriteLoader";
-import { AnimatedState } from "./AnimatedState";
+import { Container, Ticker } from "pixi.js";
 import Keyboard from "../utils/keyboard";
+import { Character } from "./Character";
+import { CharacterSpriteLoader } from "./CharacterSpriteLoader";
+import { CharacterState } from "./CharacterState";
 
 export abstract class AbstractCharacter extends Container {
-  protected sprites!: {
-    walk: AnimatedSprite
-    idle: AnimatedSprite
-  }
+  protected sprites!: Character
   protected isLoadedSprites = false
 
   constructor(
     protected keyboard: Keyboard,
-    private spriteLoader: AnimatedSpriteLoader,
+    private spriteLoader: CharacterSpriteLoader,
   ) { super() }
 
   /**
@@ -49,7 +47,7 @@ export abstract class AbstractCharacter extends Container {
    * ออกแบบให้ถูก override ได้ในคลาสลูก
    * เพื่อกำหนด sprite animation ควบคู่กับ Keyboard
    */
-  abstract setAnimateState(state: AnimatedState): void
+  abstract setAnimateState(state: CharacterState): void
 
   /**
    * ออกแบบให้ถูก override ได้ในคลาสลูก
