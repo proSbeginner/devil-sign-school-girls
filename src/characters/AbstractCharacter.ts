@@ -1,17 +1,19 @@
-import { Container, Ticker } from "pixi.js";
+import { AnimatedSprite, Container, Ticker } from "pixi.js";
 import Keyboard from "../utils/keyboard";
 import { Character } from "./Character";
 import { CharacterSpriteLoader } from "./CharacterSpriteLoader";
 import { CharacterState } from "./CharacterState";
 
-export abstract class AbstractCharacter extends Container {
-  protected sprites!: Character
+export abstract class AbstractCharacter extends Container implements Character {
+  walk!: AnimatedSprite
+  idle!: AnimatedSprite
   protected isLoadedSprites = false
 
   constructor(
     protected keyboard: Keyboard,
     private spriteLoader: CharacterSpriteLoader,
   ) { super() }
+
 
   /**
    * [บังคับ] จะต้องถูกเรียกหลังจาก new คลาสลูกของ AbstractCharacter
@@ -30,10 +32,8 @@ export abstract class AbstractCharacter extends Container {
    */
   protected async loadSprites(): Promise<void> {
     const sprites = await this.spriteLoader.load()
-    this.sprites = {
-      walk: sprites.walk,
-      idle: sprites.idle,
-    }
+    this.walk = sprites.walk
+    this.idle = sprites.idle
   }
 
   /**

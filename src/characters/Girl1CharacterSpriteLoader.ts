@@ -1,9 +1,9 @@
 import { AnimatedSprite, Assets } from "pixi.js";
-import { Character } from "./Character";
+import { CharacterSprite } from "./Character";
 import { CharacterSpriteLoader } from "./CharacterSpriteLoader";
 
 export class Girl1CharacterSpriteLoader implements CharacterSpriteLoader {
-  async load(): Promise<Character> {
+  async load(): Promise<CharacterSprite> {
     await Assets.load('assets/girl_1_walk.json')
     await Assets.load('assets/girl_1_idle.json')
 

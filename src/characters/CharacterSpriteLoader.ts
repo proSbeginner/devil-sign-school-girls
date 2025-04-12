@@ -1,5 +1,5 @@
-import { Character } from "./Character";
+import { CharacterSprite } from "./Character";
 
 export interface CharacterSpriteLoader {
-  load(): Promise<Character>
+  load(): Promise<CharacterSprite>
 }

@@ -9,27 +9,27 @@ export class Girl3Character extends AbstractCharacter {
   private isMoving: boolean = false
 
   protected onLoadedSprites(): void {
-    this.sprites.walk.visible = false
-    this.addChild(this.sprites.walk)
-    this.addChild(this.sprites.idle)
+    this.walk.visible = false
+    this.addChild(this.walk)
+    this.addChild(this.idle)
     this.setAnimateState(CharacterState.Idle)
   }
 
   protected setAnimateState(state: CharacterState): void {
     if (state === CharacterState.Walk && this.currentCharacterState !== CharacterState.Walk) { // ตรวจสอบ walk ถ้า walk อยู่แล้วก็ไม่ต้องทำอะไร
-      this.sprites.walk.play()
-      this.sprites.walk.visible = true
+      this.walk.play()
+      this.walk.visible = true
 
-      this.sprites.idle.visible = false
-      this.sprites.idle.stop()
+      this.idle.visible = false
+      this.idle.stop()
 
       this.currentCharacterState = CharacterState.Walk
     } else if (state === CharacterState.Idle && this.currentCharacterState !== CharacterState.Idle) { // ตรวจสอบ idle ถ้า idle อยู่แล้วก็ไม่ต้องทำอะไร
-      this.sprites.walk.stop()
-      this.sprites.walk.visible = false
+      this.walk.stop()
+      this.walk.visible = false
 
-      this.sprites.idle.play()
-      this.sprites.idle.visible = true
+      this.idle.play()
+      this.idle.visible = true
 
       this.currentCharacterState = CharacterState.Idle
     }
@@ -38,14 +38,14 @@ export class Girl3Character extends AbstractCharacter {
   protected onUpdate(time: Ticker): void {
     if (this.keyboard.isKeyDown(Key.ArrowLeft) || this.keyboard.isKeyDown(Key.a)) {
       this.direction = -1
-      this.sprites.walk.scale.x = this.direction
+      this.walk.scale.x = this.direction
       this.setAnimateState(CharacterState.Walk)
       if (!this.isMoving) {
         this.isMoving = true
       }
     } else if (this.keyboard.isKeyDown(Key.ArrowRight) || this.keyboard.isKeyDown(Key.d)) {
       this.direction = 1
-      this.sprites.walk.scale.x = this.direction
+      this.walk.scale.x = this.direction
       this.setAnimateState(CharacterState.Walk)
       if (!this.isMoving) {
         this.isMoving = true
@@ -58,9 +58,9 @@ export class Girl3Character extends AbstractCharacter {
     }
 
     if (this.isMoving) {
-      this.sprites.walk.x += 1.2 * time.deltaTime * this.direction
+      this.walk.x += 1.2 * time.deltaTime * this.direction
     }
-    this.sprites.idle.x = this.sprites.walk.x
-    this.sprites.idle.scale.x = this.direction
+    this.idle.x = this.walk.x
+    this.idle.scale.x = this.direction
   }
 }
